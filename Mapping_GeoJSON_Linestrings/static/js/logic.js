@@ -47,7 +47,6 @@ L.geoJSON(data, {
     layer.bindPopup("<h3> Airline: " + feature.properties.airline + "</h3> <hr><h3> Destination: "
     + feature.properties.dst + "</h3>");
   }
-
 }).
 addTo(map);
 });

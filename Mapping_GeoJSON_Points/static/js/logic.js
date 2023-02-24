@@ -36,9 +36,9 @@ d3.json(airportData).then(function(data) {
   console.log(data);
 // Creating a GeoJSON layer with the retrieved data.
 L.geoJSON(data, {
-  style: myStyle,
+
   onEachFeature: function(feature, layer) {
-    layer.bindPopup("<h3> Airline: " + feature.properties.airline + "</h3> <hr><h3> Airport Name: "
+    layer.bindPopup("<h3> Airport Code: " + feature.properties.faa + "</h3> <hr><h3> Airport Name: "
     + feature.properties.name + "</h3>");
   }
 }).
