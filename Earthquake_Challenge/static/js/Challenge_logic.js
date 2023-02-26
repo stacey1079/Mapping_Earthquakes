@@ -43,13 +43,13 @@ let allEarthquakes = new L.LayerGroup();
 let tectonicPlates = new L.LayerGroup();
 
 // Add 3rd layer for major earthquakes Challenge Deliverable 2.
-let majorEarthquake = new L.LayerGroup();
+let majorEQ = new L.LayerGroup();
 
 // 2. Add a reference to the tectonic plates group to the overlays object.
 let overlays = {
   "Earthquakes": allEarthquakes,
   "Tectonic Plates": tectonicPlates,
-  "Major Earthquake": majorEarthquake
+  "Major Earthquake": majorEQ
 };
 
 // Then we add a control to the map that will allow the user to change which
@@ -119,7 +119,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     }
   }).addTo(allEarthquakes);
 
-  // Then we add the earthquake layer to our map.
+  // Then we add the allEarthquakes layer to our map.
   allEarthquakes.addTo(map);
 
   // 3. Retrieve the major earthquake GeoJSON data >4.5 mag for the week.
@@ -171,11 +171,11 @@ L.geoJson(data, {
   onEachFeature: function(feature, layer) {
     layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
   }
-}).addTo(majorEarthquake);
+}).addTo(majorEQ);
 
 });
 // 8. Add the major earthquakes layer to the map.
-majorEarthquake.addTo(map);
+majorEQ.addTo(map);
 
 // 9. Close the braces and parentheses for the major earthquake data.
 });
